@@ -25,7 +25,7 @@ level 4 feats and rewards:
 
 ]]--
 
-local level = 5
+local level = 6
 
 --
 -- PUBLIC FUNCTIONS
@@ -37,84 +37,84 @@ skyblock.levels[level] = {}
 -- Parts of this are purely hypothetical and not implement yet
 skyblock.levels[level].feats = {
    {
-      name = "Make a corral for your animals",
-      hint = "default:fence_wood",
-      feat = "make_corral",
+      name = "Make Bronze",
+      hint = "default:bronze_ingot",
+      feat = "make_bronze_ingot",
       count = 10,
-      reward = "mobs_animal:cow 2",
-      placenode = {"default:fence_wood"}
+      reward = "default:blueberries",
+      craft = {"default:bronze_ingot"}
    },
    {
-      name = "Drink Milk",
-      hint = "mobs:bucket_milk",
-      feat = "eat_cow_milk",
+      name = "Make a Bronze Chestplate",
+      hint = "3d_armor:chestplate_bronze",
+      feat = "make_bronze_chestplate",
       count = 1,
-      reward = "mobs:shears",
-      item_eat = {"mobs:bucket_milk"},
+      reward = "mobs:butter",
+      craft = {"3d_armor:chestplate_bronze"},
    },
    {
-      name = "Make Cheese and eat it",
-      hint = "mobs:cheese",
-      feat = "make_cheese_eat",
+      name = "Make a Bronze Sword",
+      hint = "default:sword_bronze",
+      feat = "make_bronze_sword",
       count = 1,
-      reward = "default:pine_sapling 2",
-      item_eat = {"mobs:cheese"}
+      reward = "mobs:glass_milk 2",
+      craft = {"mobs:cheese"}
    },
    {
-      name = "Make a Cheese Block",
-      hint = "mobs:cheeseblock",
-      feat = "make_cheeseblock",
+      name = "Make a Gold Helmet",
+      hint = "3d_armor:helmet_gold",
+      feat = "make_gold_helmet",
       count = 1,
-      reward = "default:blueberry_bush_sapling 2",
+      reward = "default:mese",
       craft = {"mobs:cheeseblock"}
    },
    {
-      name = "Eat a cow, dont forget to cook it!",
-      hint = "mobs_animal:cow",
-      feat = "eat_cow_meat",
-      count = 1,
-      reward = "mobs_animal:sheep_white 10",
-      item_eat = {"mobs:meat"},
+      name = "Kill the crocodile with your bronze sword!!",
+      hint = "mobs_crocs:crocodile",
+      feat = "kill_crocodile",
+      count = 5,
+      reward = "moreores:mithril_lump",
+      use_item = {"default:sword_bronze"},
    },
    {
-      name = "Make a bed",
-      hint = "beds:bed",
-      feat = "make_bed",
+      name = "Make a mithril sword",
+      hint = "moreores:sword_mithril",
+      feat = "make_mithril_sword",
       count = 1,
-      reward = "mobs_animal:chicken 4",
-      placenode = {"beds:bed"},
+      reward = "mobs:egg 5",
+      craft = {"moreores:sword_mithril"},
    },
    {
-      name = "Eat chicken, dont forget to cook it!",
-      hint = "mobs:chicken_cooked",
-      feat = "eat_chicken",
+      name = "Make a mithril chestplate",
+      hint = "3d_armor:chestplate_mithril",
+      feat = "make_mithril_chestplate",
       count = 1,
-      reward = "flowers:mushroom_brown 2",
-      item_eat = {"mobs:chicken_cooked"},
+      reward = "shields:shield_mithril",
+      craft = {"3d_armor:chestplate_mithril"},
    },
    {
-      name = "Make a red carpet (red wool)",
-      hint = "wool:red",
-      feat = "make_red_wool",
+      name = "Build a house made with gold",
+      hint = "default:goldblock",
+      feat = "make_gold_block",
       count = 20,
-      reward = "flowers:mushroom_red 2",
-      craft = {"wool:red"},
+      reward = "farming:garlic",
+      placenode = {"default:goldblock"},
    },
    {
-      name = "Make a fancy bed",
-      hint = "beds:fancy_bed",
-      feat = "make_fancy_bed",
+      name = "Build a house made with mese",
+      hint = "default:mese",
+      feat = "make_mese_block",
+      count = 20,
+      reward = "moreores:axe_mithril",
+      placenode = {"default:mese"},
+   },
+   {
+      name = "Make a Lucky Block and break it",
+      hint = "lucky_block:lucky_block",
+      feat = "make_lucky_block",
       count = 1,
-      reward = "mobs:cheeseblock",
-      placenode = {"beds:fancy_bed"},
-   },
-   {
-      name = "Make a Cheese house!!!",
-      hint = "mobs:cheeseblock",
-      feat = "make_cheese_house",
-      count = 50,
-      reward = "default:tin_lump",
-      craft = {"farming:bottle_ethanol"},
+      reward = "lucky_block:super_lucky_block",
+      dignode = {"lucky_block:lucky_block"},
    }
 }
 
@@ -135,10 +135,10 @@ skyblock.levels[level].get_info = function(player_name)
 	}
 
 	local text = 'label[0,2.7; --== Quests ==--]'
-		..'label[0,0.5; Animals!]'
-		..'label[0,1.0; You will learn now how to]'
-		..'label[0,1.5; take care of your mascots...]'
-		..'label[0,2.0; Or not xD.]'
+		..'label[0,0.5; Time to get Rich!]'
+		..'label[0,1.0; Dress up with the most]'
+		..'label[0,1.5; valuable things you]'
+		..'label[0,2.0; can find in Minetest.]'
 
 	info.formspec = skyblock.levels.get_inventory_formspec(level,info.player_name,true)..text
 	info.formspec_quest = skyblock.levels.get_inventory_formspec(level,info.player_name)..text
@@ -157,8 +157,33 @@ skyblock.levels[level].get_info = function(player_name)
 end
 
 -- Reward feats
+-- reward_feat
 skyblock.levels[level].reward_feat = function(player_name, feat)
-   return skyblock.levels.reward_feat(level, player_name, feat)
+	local rewarded = skyblock.levels.reward_feat(level, player_name, feat)
+
+	if rewarded and feat == 'make_gold_helmet' then
+		local pos = skyblock.get_spawn(player_name)
+		local y_up = 1
+		while 1 == 1 do
+			local node = minetest.get_node({x=pos.x, y=pos.y+y_up, z=pos.z}).name
+			if node ~= "air" then
+				if node ~= "ignore" then
+					break
+				else
+					-- Err, place at player's pos...
+					pos = minetest.get_player_by_name(player_name):get_pos()
+					y_up = -1 -- Will get back to 0
+				end
+				y_up = y_up + 1
+			else
+				break
+			end
+		end
+		minetest.add_node({x=pos.x,y=pos.y+y_up,z=pos.z}, {name='mobs_crocs:crocodile'})
+		return true
+	end
+
+	return rewarded
 end
 
 -- Track node placement

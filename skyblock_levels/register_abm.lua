@@ -57,6 +57,8 @@ minetest.register_abm({
 	interval = 1,
 	chance = 1,
 	action = function(pos, node)
-		minetest.remove_node(pos)
+		if pos.y < -8 then
+			minetest.remove_node(pos)
+		end
 	end,
 })

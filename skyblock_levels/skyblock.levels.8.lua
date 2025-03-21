@@ -25,7 +25,7 @@ level 4 feats and rewards:
 
 ]]--
 
-local level = 5
+local level = 8
 
 --
 -- PUBLIC FUNCTIONS
@@ -37,84 +37,84 @@ skyblock.levels[level] = {}
 -- Parts of this are purely hypothetical and not implement yet
 skyblock.levels[level].feats = {
    {
-      name = "Make a corral for your animals",
-      hint = "default:fence_wood",
-      feat = "make_corral",
-      count = 10,
+      name = "Eat bread",
+      hint = "farming:bread",
+      feat = "eat_bread",
+      count = 1,
       reward = "mobs_animal:cow 2",
-      placenode = {"default:fence_wood"}
+      item_eat = {"farming:bread"}
    },
    {
-      name = "Drink Milk",
-      hint = "mobs:bucket_milk",
-      feat = "eat_cow_milk",
+      name = "Eat a corn cob",
+      hint = "farming:corn_cob",
+      feat = "eat_corn_cob",
       count = 1,
-      reward = "mobs:shears",
-      item_eat = {"mobs:bucket_milk"},
+      reward = "farming:seed_rice 5",
+      item_eat = {"farming:corn_cob"},
    },
    {
-      name = "Make Cheese and eat it",
-      hint = "mobs:cheese",
-      feat = "make_cheese_eat",
+      name = "Eat rice bread",
+      hint = "farming:rice_bread",
+      feat = "eat_rice_bread",
       count = 1,
-      reward = "default:pine_sapling 2",
-      item_eat = {"mobs:cheese"}
+      reward = "farming:vanilla 2",
+      item_eat = {"farming:rice_bread"}
    },
    {
-      name = "Make a Cheese Block",
-      hint = "mobs:cheeseblock",
-      feat = "make_cheeseblock",
+      name = "Eat a slice of bread",
+      hint = "farming:bread_slice",
+      feat = "eat_bread_slice",
       count = 1,
-      reward = "default:blueberry_bush_sapling 2",
-      craft = {"mobs:cheeseblock"}
+      reward = "mobs:egg 10",
+      craft = {"mesecons_switch:mesecon_switch_off"},
    },
    {
-      name = "Eat a cow, dont forget to cook it!",
-      hint = "mobs_animal:cow",
-      feat = "eat_cow_meat",
+      name = "Eat Vanilla Flan",
+      hint = "farming:flan",
+      feat = "eat_vanilla_flan",
       count = 1,
-      reward = "mobs_animal:sheep_white 10",
-      item_eat = {"mobs:meat"},
+      reward = "farming:ginger 5",
+      item_eat = {"farming:flan"}
    },
    {
-      name = "Make a bed",
-      hint = "beds:bed",
-      feat = "make_bed",
+      name = "Eat a gingerbread man",
+      hint = "farming:gingerbread_man",
+      feat = "eat_gingerbread_man",
       count = 1,
-      reward = "mobs_animal:chicken 4",
-      placenode = {"beds:bed"},
+      reward = "farming:cocoa_beans_raw 40",
+      item_eat = {"farming:gingerbread_man"},
    },
    {
-      name = "Eat chicken, dont forget to cook it!",
-      hint = "mobs:chicken_cooked",
-      feat = "eat_chicken",
+      name = "Eat chocolate",
+      hint = "farming:chocolate_dark",
+      feat = "eat_chocolate_dark",
       count = 1,
-      reward = "flowers:mushroom_brown 2",
-      item_eat = {"mobs:chicken_cooked"},
+      reward = "farming:pineapple 5",
+      item_eat = {"farming:chocolate_dark"},
    },
    {
-      name = "Make a red carpet (red wool)",
-      hint = "wool:red",
-      feat = "make_red_wool",
-      count = 20,
-      reward = "flowers:mushroom_red 2",
-      craft = {"wool:red"},
-   },
-   {
-      name = "Make a fancy bed",
-      hint = "beds:fancy_bed",
-      feat = "make_fancy_bed",
+      name = "Make a chocolate block",
+      hint = "farming:chocolate_block",
+      feat = "make_chocolate_block",
       count = 1,
-      reward = "mobs:cheeseblock",
-      placenode = {"beds:fancy_bed"},
+      reward = "farming:carrot 5",
+      craft = {"farming:chocolate_block"},
    },
    {
-      name = "Make a Cheese house!!!",
-      hint = "mobs:cheeseblock",
-      feat = "make_cheese_house",
-      count = 50,
-      reward = "default:tin_lump",
-      craft = {"farming:bottle_ethanol"},
+      name = "Eat a chocolate donut",
+      hint = "farming:donut_chocolate",
+      feat = "eat_chocolate_donut",
+      count = 1,
+      reward = "default:sand 20",
+      item_eat = {"farming:donut_chocolate"},
+   },
+   {
+      name = "Drink carrot juice",
+      hint = "farming:carrot_juice",
+      feat = "drink_carrot_juice",
+      count = 1,
+      reward = "farming:mayonnaise",
+      item_eat = {"farming:carrot_juice"},
    }
 }
 
@@ -135,10 +135,10 @@ skyblock.levels[level].get_info = function(player_name)
 	}
 
 	local text = 'label[0,2.7; --== Quests ==--]'
-		..'label[0,0.5; Animals!]'
-		..'label[0,1.0; You will learn now how to]'
-		..'label[0,1.5; take care of your mascots...]'
-		..'label[0,2.0; Or not xD.]'
+		..'label[0,0.5; Time to be a Chef!]'
+		..'label[0,1.0; Make delicious food]'
+		..'label[0,1.5; to eat yourself.]'
+		..'label[0,2.0; .]'
 
 	info.formspec = skyblock.levels.get_inventory_formspec(level,info.player_name,true)..text
 	info.formspec_quest = skyblock.levels.get_inventory_formspec(level,info.player_name)..text

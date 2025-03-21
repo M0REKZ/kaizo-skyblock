@@ -25,7 +25,7 @@ level 4 feats and rewards:
 
 ]]--
 
-local level = 5
+local level = 9
 
 --
 -- PUBLIC FUNCTIONS
@@ -37,84 +37,84 @@ skyblock.levels[level] = {}
 -- Parts of this are purely hypothetical and not implement yet
 skyblock.levels[level].feats = {
    {
-      name = "Make a corral for your animals",
-      hint = "default:fence_wood",
-      feat = "make_corral",
-      count = 10,
-      reward = "mobs_animal:cow 2",
-      placenode = {"default:fence_wood"}
-   },
-   {
-      name = "Drink Milk",
-      hint = "mobs:bucket_milk",
-      feat = "eat_cow_milk",
+      name = "Make a Jaffa cake",
+      hint = "farming:jaffa_cake",
+      feat = "make_jaffa_cake",
       count = 1,
-      reward = "mobs:shears",
-      item_eat = {"mobs:bucket_milk"},
+      reward = "mobs_animal:sheep_white 2",
+      craft = {"farming:jaffa_cake"}
    },
    {
-      name = "Make Cheese and eat it",
-      hint = "mobs:cheese",
-      feat = "make_cheese_eat",
-      count = 1,
-      reward = "default:pine_sapling 2",
-      item_eat = {"mobs:cheese"}
-   },
-   {
-      name = "Make a Cheese Block",
-      hint = "mobs:cheeseblock",
-      feat = "make_cheeseblock",
-      count = 1,
-      reward = "default:blueberry_bush_sapling 2",
-      craft = {"mobs:cheeseblock"}
-   },
-   {
-      name = "Eat a cow, dont forget to cook it!",
+      name = "Make a cow",
       hint = "mobs_animal:cow",
-      feat = "eat_cow_meat",
+      feat = "make_cow",
       count = 1,
-      reward = "mobs_animal:sheep_white 10",
-      item_eat = {"mobs:meat"},
+      reward = "mobs:meat_raw 5",
+      craft = {"mobs_animal:cow"},
    },
    {
-      name = "Make a bed",
-      hint = "beds:bed",
-      feat = "make_bed",
+      name = "Make a red sheep",
+      hint = "mobs_animal:sheep_red",
+      feat = "make_sheep_red",
       count = 1,
-      reward = "mobs_animal:chicken 4",
-      placenode = {"beds:bed"},
+      reward = "mobs_animal:cow 5",
+      craft = {"mobs_animal:sheep_red"}
    },
    {
-      name = "Eat chicken, dont forget to cook it!",
-      hint = "mobs:chicken_cooked",
-      feat = "eat_chicken",
+      name = "Make a meat block",
+      hint = "mobs:meatblock",
+      feat = "make_meat_block",
       count = 1,
-      reward = "flowers:mushroom_brown 2",
-      item_eat = {"mobs:chicken_cooked"},
+      reward = "farming:garlic 5",
+      craft = {"mobs:meatblock"},
    },
    {
-      name = "Make a red carpet (red wool)",
-      hint = "wool:red",
-      feat = "make_red_wool",
-      count = 20,
-      reward = "flowers:mushroom_red 2",
-      craft = {"wool:red"},
-   },
-   {
-      name = "Make a fancy bed",
-      hint = "beds:fancy_bed",
-      feat = "make_fancy_bed",
+      name = "Make a crocodile and place it",
+      hint = "mobs_crocs:crocodile",
+      feat = "make_crocodile",
       count = 1,
-      reward = "mobs:cheeseblock",
-      placenode = {"beds:fancy_bed"},
+      reward = "farming:seed_sunflower",
+      placenode = {"mobs_crocs:crocodile"}
    },
    {
-      name = "Make a Cheese house!!!",
-      hint = "mobs:cheeseblock",
-      feat = "make_cheese_house",
-      count = 50,
-      reward = "default:tin_lump",
-      craft = {"farming:bottle_ethanol"},
+      name = "Make Pasta",
+      hint = "farming:pasta",
+      feat = "make_pasta",
+      count = 1,
+      reward = "farming:tomato 5",
+      craft = {"farming:pasta"},
+   },
+   {
+      name = "Eat spaghetti",
+      hint = "farming:spaghetti",
+      feat = "eat_spaghetti",
+      count = 1,
+      reward = "default:papyrus 10",
+      item_eat = {"farming:spaghetti"},
+   },
+   {
+      name = "Eat a toast",
+      hint = "farming:toast_sandwich",
+      feat = "make_toast_sandwich",
+      count = 1,
+      reward = "farming:scythe_mithril",
+      craft = {"farming:toast_sandwich"},
+   },
+   {
+      name = "Make a cat",
+      hint = "mobs_animal:kitten",
+      feat = "make_kitten",
+      count = 1,
+      reward = "default:sand 20",
+      craft = {"mobs_animal:kitten"},
+   },
+   {
+      name = "Make TNT",
+      hint = "tnt:tnt",
+      feat = "make_tnt",
+      count = 1,
+      reward = "lucky_block:super_lucky_block",
+      craft = {"tnt:tnt"},
    }
 }
 
@@ -135,10 +135,10 @@ skyblock.levels[level].get_info = function(player_name)
 	}
 
 	local text = 'label[0,2.7; --== Quests ==--]'
-		..'label[0,0.5; Animals!]'
-		..'label[0,1.0; You will learn now how to]'
-		..'label[0,1.5; take care of your mascots...]'
-		..'label[0,2.0; Or not xD.]'
+		..'label[0,0.5; Too easy for you?...]'
+		..'label[0,1.0; .]'
+		..'label[0,1.5; .]'
+		..'label[0,2.0; .]'
 
 	info.formspec = skyblock.levels.get_inventory_formspec(level,info.player_name,true)..text
 	info.formspec_quest = skyblock.levels.get_inventory_formspec(level,info.player_name)..text

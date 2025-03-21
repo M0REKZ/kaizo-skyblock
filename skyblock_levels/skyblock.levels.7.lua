@@ -25,7 +25,7 @@ level 4 feats and rewards:
 
 ]]--
 
-local level = 5
+local level = 7
 
 --
 -- PUBLIC FUNCTIONS
@@ -37,84 +37,84 @@ skyblock.levels[level] = {}
 -- Parts of this are purely hypothetical and not implement yet
 skyblock.levels[level].feats = {
    {
-      name = "Make a corral for your animals",
-      hint = "default:fence_wood",
-      feat = "make_corral",
-      count = 10,
-      reward = "mobs_animal:cow 2",
-      placenode = {"default:fence_wood"}
+      name = "Make a cart",
+      hint = "carts:cart",
+      feat = "make_cart",
+      count = 1,
+      reward = "farming:coffee_cup_hot",
+      craft = {"carts:cart"}
    },
    {
-      name = "Drink Milk",
-      hint = "mobs:bucket_milk",
-      feat = "eat_cow_milk",
+      name = "Make a rail for your cart",
+      hint = "carts:rail",
+      feat = "make_cart_rail",
       count = 1,
-      reward = "mobs:shears",
-      item_eat = {"mobs:bucket_milk"},
+      reward = "mobs_turtles:turtle",
+      placenode = {"carts:rail"},
    },
    {
-      name = "Make Cheese and eat it",
-      hint = "mobs:cheese",
-      feat = "make_cheese_eat",
-      count = 1,
+      name = "Make mese wires",
+      hint = "mesecons:wire_00000000_off",
+      feat = "make_mese_wire",
+      count = 50,
       reward = "default:pine_sapling 2",
-      item_eat = {"mobs:cheese"}
+      craft = {"mesecons:wire_00000000_off"}
    },
    {
-      name = "Make a Cheese Block",
-      hint = "mobs:cheeseblock",
-      feat = "make_cheeseblock",
+      name = "Make a piston",
+      hint = "mesecons_pistons:piston_normal_off",
+      feat = "make_piston",
       count = 1,
       reward = "default:blueberry_bush_sapling 2",
-      craft = {"mobs:cheeseblock"}
+      craft = {"mesecons_pistons:piston_normal_off"}
    },
    {
-      name = "Eat a cow, dont forget to cook it!",
-      hint = "mobs_animal:cow",
-      feat = "eat_cow_meat",
+      name = "Make a switch",
+      hint = "mesecons_switch:mesecon_switch_off",
+      feat = "make_switch",
       count = 1,
-      reward = "mobs_animal:sheep_white 10",
-      item_eat = {"mobs:meat"},
+      reward = "mobs_animal:penguin 2",
+      craft = {"mesecons_switch:mesecon_switch_off"},
    },
    {
-      name = "Make a bed",
-      hint = "beds:bed",
-      feat = "make_bed",
+      name = "Make a electric torch",
+      hint = "mesecons_torch:mesecon_torch_on",
+      feat = "make_electric_torch",
       count = 1,
-      reward = "mobs_animal:chicken 4",
-      placenode = {"beds:bed"},
+      reward = "default:sand 30",
+      craft = {"mesecons_torch:mesecon_torch_on"},
    },
    {
-      name = "Eat chicken, dont forget to cook it!",
-      hint = "mobs:chicken_cooked",
-      feat = "eat_chicken",
+      name = "Make a microcontroller",
+      hint = "mesecons_microcontroller:microcontroller0000",
+      feat = "make_microcontroller",
       count = 1,
-      reward = "flowers:mushroom_brown 2",
-      item_eat = {"mobs:chicken_cooked"},
+      reward = "flowers:flower_dandelion_yellow 5",
+      craft = {"mesecons_microcontroller:microcontroller0000"},
    },
    {
-      name = "Make a red carpet (red wool)",
-      hint = "wool:red",
-      feat = "make_red_wool",
-      count = 20,
-      reward = "flowers:mushroom_red 2",
-      craft = {"wool:red"},
-   },
-   {
-      name = "Make a fancy bed",
-      hint = "beds:fancy_bed",
-      feat = "make_fancy_bed",
+      name = "Make a player detector",
+      hint = "mesecons_detector:object_detector_off",
+      feat = "make_player_detector",
       count = 1,
-      reward = "mobs:cheeseblock",
-      placenode = {"beds:fancy_bed"},
+      reward = "flowers:flower_viola 4",
+      craft = {"mesecons_detector:object_detector_off"},
    },
    {
-      name = "Make a Cheese house!!!",
-      hint = "mobs:cheeseblock",
-      feat = "make_cheese_house",
-      count = 50,
-      reward = "default:tin_lump",
-      craft = {"farming:bottle_ethanol"},
+      name = "Make a solar panel",
+      hint = "mesecons_solarpanel:solar_panel_off",
+      feat = "make_solar_panel",
+      count = 1,
+      reward = "default:acacia_bush_sapling",
+      placenode = {"mesecons_solarpanel:solar_panel_off"},
+   },
+   {
+      name = "Make a power plant",
+      hint = "mesecons_powerplant:power_plant",
+      feat = "make_power_plant",
+      count = 1,
+      reward = "farming:flour 5",
+      craft = {"mesecons_powerplant:power_plant"},
    }
 }
 
@@ -135,10 +135,10 @@ skyblock.levels[level].get_info = function(player_name)
 	}
 
 	local text = 'label[0,2.7; --== Quests ==--]'
-		..'label[0,0.5; Animals!]'
-		..'label[0,1.0; You will learn now how to]'
-		..'label[0,1.5; take care of your mascots...]'
-		..'label[0,2.0; Or not xD.]'
+		..'label[0,0.5; Lets start being]'
+		..'label[0,1.0; more technological...]'
+		..'label[0,1.5; By using MESE!!]'
+		..'label[0,2.0; .]'
 
 	info.formspec = skyblock.levels.get_inventory_formspec(level,info.player_name,true)..text
 	info.formspec_quest = skyblock.levels.get_inventory_formspec(level,info.player_name)..text

@@ -63,6 +63,24 @@ minetest.register_craft({
 	}
 })
 
+-- stone_with_tin
+minetest.register_craft({
+	output = 'default:stone_with_tin 2',
+	recipe = {
+		{'default:tin_lump'},
+		{'default:stone'},
+	}
+})
+
+-- stone_with_mithril
+minetest.register_craft({
+	output = 'moreores:mineral_mithril 2',
+	recipe = {
+		{'moreores:mithril_lump'},
+		{'default:stone'},
+	}
+})
+
 -- stone_with_mese
 minetest.register_craft({
 	output = 'default:stone_with_mese 2',
@@ -217,3 +235,54 @@ minetest.register_craft({
 	recipe = 'default:desert_sand',
 })
 
+-- rice
+minetest.register_craft({
+	output = 'farming:seed_rice 2',
+	recipe = {
+		{'farming:rice'},
+	}
+})
+
+-- rice
+minetest.register_craft({
+	output = 'mobs_animal:chicken',
+	recipe = {
+		{'mobs:egg'},
+	}
+})
+
+minetest.register_craft({
+	output = 'mobs_animal:cow',
+	recipe = {
+		{'wool:white', 'wool:black', 'wool:white'},
+		{'group:food_meat_raw', 'group:food_meat_raw', 'group:food_meat_raw'},
+		{'wool:white', 'wool:black', 'wool:white'},
+	}
+})
+
+minetest.register_craft({
+	output = 'mobs_animal:sheep_red',
+	recipe = {
+		{'wool:red', 'wool:red', 'wool:red'},
+		{'group:food_meat_raw', 'group:food_meat_raw', 'group:food_meat_raw'},
+		{'wool:red', 'wool:red', 'wool:red'},
+	}
+})
+
+minetest.register_craft({
+	output = 'mobs_crocs:crocodile',
+	recipe = {
+		{'wool:green', 'wool:green', 'wool:green'},
+		{'group:food_meat_raw', 'default:mese', 'group:food_meat_raw'},
+		{'wool:green', 'wool:green', 'wool:green'},
+	}
+})
+
+minetest.register_craft({
+	output = 'mobs_animal:kitten',
+	recipe = {
+		{'wool:orange', 'wool:orange', 'wool:orange'},
+		{'group:food_meat_raw', 'default:diamondblock', 'group:food_meat_raw'},
+		{'wool:orange', 'wool:orange', 'wool:orange'},
+	}
+})
