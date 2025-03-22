@@ -40,7 +40,7 @@ skyblock.levels[level].feats = {
       name = "Make Bronze",
       hint = "default:bronze_ingot",
       feat = "make_bronze_ingot",
-      count = 10,
+      count = 1,
       reward = "default:blueberries",
       craft = {"default:bronze_ingot"}
    },
