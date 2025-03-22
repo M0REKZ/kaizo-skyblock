@@ -286,3 +286,52 @@ minetest.register_craft({
 		{'wool:orange', 'wool:orange', 'wool:orange'},
 	}
 })
+
+minetest.register_craft({
+	output = 'dye:dark_green 2',
+	recipe = {
+		{'farming:weed'},
+	}
+})
+
+minetest.register_craft({
+	output = 'dye:yellow 4',
+	recipe = {
+		{'default:gold_lump'},
+	}
+})
+
+minetest.register_craft({
+	output = 'dye:yellow 4',
+	recipe = {
+		{'default:gold_ingot'},
+	}
+})
+
+minetest.register_craft({
+	output = 'dye:red 4',
+	recipe = {
+		{'default:clay_brick'},
+	}
+})
+
+minetest.register_craft({
+	output = 'dye:red 36',
+	recipe = {
+		{'default:brick'},
+	}
+})
+
+minetest.register_craft({
+	output = 'dye:white 10',
+	recipe = {
+		{'wool:white'},
+	}
+})
+
+minetest.register_craft({
+	output = 'dye:white 2',
+	recipe = {
+		{'mobs:chicken_feather'},
+	}
+})
