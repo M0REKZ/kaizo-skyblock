@@ -82,7 +82,7 @@ skyblock.levels[level].feats = {
       feat = "make_bed",
       count = 1,
       reward = "mobs_animal:chicken 4",
-      placenode = {"beds:bed_bottom"},
+      craft = {"beds:bed"},
    },
    {
       name = "Eat chicken, dont forget to cook it!",
@@ -106,7 +106,7 @@ skyblock.levels[level].feats = {
       feat = "make_fancy_bed",
       count = 1,
       reward = "mobs:cheeseblock",
-      placenode = {"beds:fancy_bed_bottom"},
+      craft = {"beds:fancy_bed"},
    },
    {
       name = "Make a Cheese house!!!",
