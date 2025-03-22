@@ -15,7 +15,7 @@ skyblock.levels = {}
 -- CONFIG OPTIONS
 --
 
--- true to restart from level1, false to restart from current level
+-- true to restart from level1, false to keep everything
 skyblock.levels.restart_on_die = minetest.setting_getbool('skyblock.levels.restart_on_die')
 
 
@@ -69,7 +69,8 @@ function skyblock.levels.get_inventory_formspec(level,player_name,inventory)
 		formspec = formspec..'button_exit[13,0;2,0.5;close;Close]'
 	else
 		formspec = formspec
-			..'button[11,0;2,0.5;restart;Restart]'
+			..'button[9,0;2,0.5;restart;Rebirth]'
+			..'button[11,0;2,0.5;restart_level;Reset current level]'
 			..'button_exit[13,0;2,0.5;close;Close]'
 	end
 
@@ -162,6 +163,17 @@ function skyblock.show_restart_formspec(player_name)
 		..'button[0,2;3,0.5;restart;Confirm Restart]'
 		..'button_exit[3,2;3,0.5;close;Cancel]'
 	minetest.show_formspec(player_name, 'skyblock_restart', formspec)
+end
+
+-- get_restart_formspec
+function skyblock.show_restart_level_formspec(player_name)
+	local formspec = 'size[6,2.5;]'
+		..'label[0,0.0;-= Are you sure you want to restart this level? =-]'
+		..'label[0,0.5;You will lose all your Items]'
+		..'label[0,1.0;.]'
+		..'button[0,2;3,0.5;restart_level;Confirm Restart]'
+		..'button_exit[3,2;3,0.5;close;Cancel]'
+	minetest.show_formspec(player_name, 'skyblock_restart_level', formspec)
 end
 
 --

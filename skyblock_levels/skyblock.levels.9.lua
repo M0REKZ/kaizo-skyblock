@@ -69,12 +69,12 @@ skyblock.levels[level].feats = {
       craft = {"mobs:meatblock"},
    },
    {
-      name = "Make a crocodile and place it",
+      name = "Make a crocodile",
       hint = "mobs_crocs:crocodile",
       feat = "make_crocodile",
       count = 1,
       reward = "farming:seed_sunflower",
-      placenode = {"mobs_crocs:crocodile"}
+      craft = {"mobs_crocs:crocodile"}
    },
    {
       name = "Make Pasta",

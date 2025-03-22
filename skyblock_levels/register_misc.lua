@@ -35,8 +35,8 @@ minetest.register_on_dieplayer(function(player)
 	-- back to beginning
 	if skyblock.levels.restart_on_die then
 		skyblock.feats.reset(player_name)
-	else
-		skyblock.feats.reset_level(player_name)
+	--else
+		--skyblock.feats.reset_level(player_name) commented by +KZ
 	end
 
 	-- back to start of this level
@@ -48,6 +48,10 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 	-- restart
 	if formname=='skyblock_restart' and fields.restart then
 		player:set_hp(0)
+		skyblock.feats.reset(player:get_player_name())
+	elseif formname=='skyblock_restart_level' and fields.restart_level then
+		player:set_hp(0)
+		skyblock.feats.reset_level(player:get_player_name())
 	end
 end)
 

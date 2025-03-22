@@ -66,7 +66,7 @@ skyblock.levels[level].feats = {
       feat = "eat_bread_slice",
       count = 1,
       reward = "mobs:egg 10",
-      craft = {"mesecons_switch:mesecon_switch_off"},
+      item_eat = {"farming:bread_slice"},
    },
    {
       name = "Eat Vanilla Flan",
