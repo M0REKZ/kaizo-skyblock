@@ -114,7 +114,7 @@ skyblock.levels[level].feats = {
       feat = "make_cheese_house",
       count = 50,
       reward = "default:tin_lump",
-      craft = {"farming:bottle_ethanol"},
+      placenode = {"mobs:cheeseblock"},
    }
 }
 
