@@ -82,7 +82,7 @@ skyblock.levels[level].feats = {
       feat = "make_bed",
       count = 1,
       reward = "mobs_animal:chicken 4",
-      placenode = {"beds:bed"},
+      placenode = {"beds:bed_bottom"},
    },
    {
       name = "Eat chicken, dont forget to cook it!",
@@ -93,12 +93,12 @@ skyblock.levels[level].feats = {
       item_eat = {"mobs:chicken_cooked"},
    },
    {
-      name = "Make a red carpet (red wool)",
+      name = "Make a red carpet",
       hint = "wool:red",
       feat = "make_red_wool",
       count = 20,
       reward = "flowers:mushroom_red 2",
-      craft = {"wool:red"},
+      placenode = {"wool:red"},
    },
    {
       name = "Make a fancy bed",
@@ -106,7 +106,7 @@ skyblock.levels[level].feats = {
       feat = "make_fancy_bed",
       count = 1,
       reward = "mobs:cheeseblock",
-      placenode = {"beds:fancy_bed"},
+      placenode = {"beds:fancy_bed_bottom"},
    },
    {
       name = "Make a Cheese house!!!",
