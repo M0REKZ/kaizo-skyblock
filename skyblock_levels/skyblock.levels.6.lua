@@ -72,9 +72,10 @@ skyblock.levels[level].feats = {
       name = "Kill the crocodile with your bronze sword!!",
       hint = "mobs_crocs:crocodile",
       feat = "kill_crocodile",
-      count = 5,
+      count = 10,
       reward = "moreores:mithril_lump",
-      use_item = {"default:sword_bronze"},
+      sworduse = {},
+      use_item = "default:sword_bronze",
    },
    {
       name = "Make a mithril sword",
@@ -209,6 +210,11 @@ end
 -- track hoe use
 skyblock.levels[level].hoe_on_use = function(player_name, pointed_thing, wieldeditem)
    skyblock.levels.hoe_on_use(level, player_name, pointed_thing, wieldeditem)
+end
+
+-- track hoe use
+skyblock.levels[level].sword_on_use = function(player_name, wieldeditem)
+   skyblock.levels.sword_on_use(level, player_name, wieldeditem)
 end
 
 skyblock.levels[level].bucket_on_use = function(player_name, pointed_thing) end

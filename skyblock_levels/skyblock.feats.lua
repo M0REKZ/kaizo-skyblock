@@ -215,6 +215,15 @@ function skyblock.feats.hoe_on_use(itemstack, user, pointed_thing)
 	end
 end
 
+--track hoe use
+function skyblock.feats.sword_on_use(user,itemname)
+	local player_name = user:get_player_name()
+	local level = skyblock.feats.get_level(player_name)
+	if skyblock.levels[level].sword_on_use then
+	   skyblock.levels[level].sword_on_use(player_name, itemname)
+	end
+end
+
 -- track on_place of items with their own on_place
 local function on_place(v, is_craftitem)
 	local entity = minetest.registered_items[v]
@@ -443,6 +452,40 @@ for _, material in pairs({"wood", "stone", "steel", "bronze", "mese", "diamond"}
 		groups = {not_in_creative_inventory = 0}
 	})
 end
+
+local players = {}
+
+minetest.register_on_joinplayer(function(player)
+	local player_name = player:get_player_name()
+	players[player_name] = {soundToggle = 0}
+end)
+
+minetest.register_on_leaveplayer(function(player)
+	local player_name = player:get_player_name()
+	players[player_name] = nil
+end)
+
+
+local pressedmouse = false
+minetest.register_globalstep(function(dtime)
+	--Loop through all connected players
+	for player_name,player_info in pairs(players) do
+		local player = minetest.get_player_by_name(player_name)
+		if player ~= nil then
+			-- if user is wielding a sword weapon
+			local itemname = player:get_wielded_item():get_name()
+			if string.find(itemname, "sword_") then
+				-- if user is pressing left mouse button
+				if player:get_player_control()["LMB"] == true and not pressedmouse then
+					skyblock.feats.sword_on_use(player,itemname)
+					pressedmouse = true
+				elseif player:get_player_control()["LMB"] == false and pressedmouse then
+					pressedmouse = false
+				end
+			end
+		end
+	end
+end)
 
 --make uncraftable hoes craftable
 local uncraftable_hoes = {bronze="bronze_ingot", mese="mese_crystal", diamond="diamond"}

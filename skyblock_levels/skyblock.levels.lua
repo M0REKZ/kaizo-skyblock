@@ -295,3 +295,14 @@ function skyblock.levels.hoe_on_use(level, player_name, pointed_thing, itemname)
 		end
 	end
 end
+
+function skyblock.levels.sword_on_use(level, player_name, itemname)
+	for _,v in ipairs(skyblock.levels[level].feats) do
+		if v.sworduse then
+			if itemname == v.use_item then
+				skyblock.feats.add(level, player_name, v.feat)
+				return
+			end
+		end
+	end
+end
