@@ -58,7 +58,7 @@ skyblock.levels[level].feats = {
       feat = "make_bronze_sword",
       count = 1,
       reward = "mobs:glass_milk 2",
-      craft = {"mobs:cheese"}
+      craft = {"default:sword_bronze"}
    },
    {
       name = "Make a Gold Helmet",
@@ -66,7 +66,7 @@ skyblock.levels[level].feats = {
       feat = "make_gold_helmet",
       count = 1,
       reward = "default:mese",
-      craft = {"mobs:cheeseblock"}
+      craft = {"3d_armor:helmet_gold"}
    },
    {
       name = "Kill the crocodile with your bronze sword!!",
