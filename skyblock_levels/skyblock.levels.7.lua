@@ -53,12 +53,12 @@ skyblock.levels[level].feats = {
       placenode = {"carts:rail"},
    },
    {
-      name = "Make mese wires",
+      name = "Make mese wires and place them",
       hint = "mesecons:wire_00000000_off",
       feat = "make_mese_wire",
       count = 50,
       reward = "default:pine_sapling 2",
-      craft = {"mesecons:wire_00000000_off"}
+      placenode = {"mesecons:wire_00000000_off"}
    },
    {
       name = "Make a piston",
