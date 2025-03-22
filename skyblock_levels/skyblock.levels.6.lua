@@ -115,7 +115,7 @@ skyblock.levels[level].feats = {
       feat = "make_lucky_block",
       count = 1,
       reward = "lucky_block:super_lucky_block",
-      dignode = {"lucky_block:lucky_block"},
+      placenode = {"lucky_block:lucky_block"},
    }
 }
 
