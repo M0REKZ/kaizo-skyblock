@@ -179,7 +179,7 @@ skyblock.levels[level].reward_feat = function(player_name, feat)
 				break
 			end
 		end
-		minetest.add_node({x=pos.x,y=pos.y+y_up,z=pos.z}, {name='mobs_crocs:crocodile'})
+      minetest.add_entity({x=pos.x,y=pos.y+y_up,z=pos.z}, "mobs_crocs:crocodile")
 		return true
 	end
 
