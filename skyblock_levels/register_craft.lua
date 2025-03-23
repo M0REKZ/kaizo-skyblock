@@ -335,3 +335,34 @@ minetest.register_craft({
 		{'mobs:chicken_feather'},
 	}
 })
+
+minetest.register_craft({
+	output = 'ethereal:orange',
+	recipe = {
+		{'dye:orange'},
+		{'default:apple'},
+	}
+})
+
+minetest.register_craft({
+	output = 'dye:white',
+	recipe = {
+		{'group:food_flour'},
+	}
+})
+
+minetest.register_craft({
+	output = 'wool:white',
+	recipe = {
+		{'dye:white', 'dye:white', 'dye:white'},
+		{'dye:white', 'dye:white', 'dye:white'},
+		{'dye:white', 'dye:white', 'dye:white'},
+	}
+})
+
+minetest.register_craft({
+	output = 'dye:white 9',
+	recipe = {
+		{'wool:white'},
+	}
+})
