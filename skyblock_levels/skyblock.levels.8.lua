@@ -69,12 +69,12 @@ skyblock.levels[level].feats = {
       item_eat = {"farming:bread_slice"},
    },
    {
-      name = "Eat Vanilla Flan",
-      hint = "farming:flan",
-      feat = "eat_vanilla_flan",
+      name = "Eat an Apple Donut",
+      hint = "farming:donut_apple",
+      feat = "eat_donut_apple",
       count = 1,
       reward = "farming:ginger 5",
-      item_eat = {"farming:flan"}
+      item_eat = {"farming:donut_apple"}
    },
    {
       name = "Eat a gingerbread man",
