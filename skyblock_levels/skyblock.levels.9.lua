@@ -61,7 +61,7 @@ skyblock.levels[level].feats = {
       craft = {"mobs_animal:sheep_red"}
    },
    {
-      name = "Make a meat block",
+      name = "Place a meat block",
       hint = "mobs:meatblock",
       feat = "make_meat_block",
       count = 1,
