@@ -66,7 +66,7 @@ skyblock.levels[level].feats = {
       feat = "make_meat_block",
       count = 1,
       reward = "farming:garlic 5",
-      craft = {"mobs:meatblock"},
+      placenode = {"mobs:meatblock"},
    },
    {
       name = "Make a crocodile",
